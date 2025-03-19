@@ -1,6 +1,6 @@
 # Ex-1 IMPLEMENTATION-OF-SYMBOL-TABLE
-# Register Number :
-# Date : 
+# Register Number : 212223100010
+# Date : 19/03/2025
 # AIM :
 ## To write a C program to implement a symbol table.
 # ALGORITHM
@@ -13,6 +13,32 @@
 7.	To reach a variable, enter the variable to be searched and the symbol table has been checked for the corresponding variable, the variable along with its address is displayed as a result.
 8.	Stop the program. 
 # PROGRAM
+
+```
+%{
+#include <stdio.h>
+%}
+
+%%
+
+[0-9]+       {printf("NUMBER: %s\n", yytext); }
+[A-Za-z][A-Za-z0-9]*    { printf("IDENTIFIER: %s\n", yytext); }
+[+\-*/=]       {printf("OPERATOR: %s\n", yytext); }
+[ \t\n]      { /* Ignore whitespace */ }
+.           { printf("UNKNOWN: %s\n", yytext); }
+
+%%
+
+int yywrap() { return 1; }
+
+int main() {
+    printf("Enter your input: ");
+    yylex();
+    return 0;
+}
+```
 # OUTPUT
+![alt text](op.png)
+
 # RESULT
 ### The program to implement a symbol table is executed and the output is verified.
